@@ -1,0 +1,1 @@
+Azure Function placeholder to send notifications when an incident is created. For this prototype we include a TODO to implement an HTTP-triggered Function that accepts an incident payload and sends an email via SendGrid or a Teams webhook.

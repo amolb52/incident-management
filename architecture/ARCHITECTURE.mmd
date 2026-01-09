@@ -1,0 +1,28 @@
+%% Mermaid diagram for architecture
+graph LR
+  subgraph Users
+    U[User (Web Browser)]
+  end
+
+  subgraph Frontend
+    React[React SPA]
+  end
+
+  subgraph Backend
+    API[ASP.NET Core API (App Service / Docker)]
+    Func[Azure Function (Notifications)]
+  end
+
+  subgraph Azure
+    SQL[Azure SQL Database]
+    Blob[Azure Blob Storage]
+    KV[Azure Key Vault]
+  end
+
+  U --> React
+  React --> API
+  API --> SQL
+  API --> Blob
+  API --> KV
+  API --> Func
+  Func -->|Sends email / webhook| External[External Notifier (SendGrid / Teams)]
